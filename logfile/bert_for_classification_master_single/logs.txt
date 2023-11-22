@@ -1,0 +1,15 @@
+INFO:root:Using Tensorboard, logs will be saved in logfile/bert_for_classification_master_single/logs
+INFO:root:Training mode set to Single Mode ...
+INFO:root:Creating model BERTForClassification ...
+INFO:root:Start formal training...
+INFO:root:Train phase: lr 2e-05, iteration 1755, epoch 0, loss: 149.2840  val_loss: 0.0669  acc: 94.9448% val_acc: 98.2589%
+INFO:root:Train phase | Epoch 0, Train time 129.58443355560303, Total time 129.58443355560303
+INFO:root:Train phase: lr 2e-05, iteration 1755, epoch 1, loss: 41.9724  val_loss: 0.0560  acc: 98.6366% val_acc: 98.4874%
+INFO:root:Train phase | Epoch 1, Train time 129.79055047035217, Total time 259.3749840259552
+INFO:root:Train phase: lr 2e-05, iteration 1755, epoch 2, loss: 24.2709  val_loss: 0.0562  acc: 99.2195% val_acc: 98.5560%
+INFO:root:Train phase | Epoch 2, Train time 129.07277965545654, Total time 388.44776368141174
+INFO:root:Train phase: lr 2e-05, iteration 1755, epoch 3, loss: 16.0136  val_loss: 0.0632  acc: 99.4812% val_acc: 98.4354%
+INFO:root:Train phase | Epoch 3, Train time 130.3002552986145, Total time 518.7480189800262
+INFO:root:Train phase: lr 2e-05, iteration 1755, epoch 4, loss: 11.5815  val_loss: 0.0660  acc: 99.6316% val_acc: 98.6199%
+INFO:root:Train phase | Epoch 4, Train time 127.87987637519836, Total time 646.6278953552246
+INFO:root:Train finish | Total training time 646.6278953552246

@@ -1,0 +1,26 @@
+INFO:root:Using Tensorboard, logs will be saved in logfile/har_worker_5001/logs
+INFO:werkzeug: * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.0.3.210:5001 (Press CTRL+C to quit)
+INFO:werkzeug:10.0.3.210 - - [07/Jul/2023 10:05:53] "GET /is_available HTTP/1.1" 200 -
+INFO:werkzeug:10.0.3.210 - - [07/Jul/2023 10:05:54] "POST /update_workers HTTP/1.1" 200 -
+ERROR:flask_api.worker.index:Exception on /measure_neighbor [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.conda/envs/low_torch/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.conda/envs/low_torch/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.conda/envs/low_torch/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.conda/envs/low_torch/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/FTPipeHD/src_qyy/flask_api/worker/index.py", line 57, in measure_neighbor
+    bw = measure_neighbor_handler()
+  File "/home/ubuntu/FTPipeHD/src_qyy/utils/train_worker.py", line 337, in measure_neighbor_handler
+    target_url = get_url_from_worker(cur_idx + 1)
+  File "/home/ubuntu/FTPipeHD/src_qyy/global_variables/common.py", line 95, in get_url_from_worker
+    return workers[stage_idx]
+KeyError: 3
+INFO:werkzeug:10.0.3.210 - - [07/Jul/2023 10:05:56] "[35m[1mGET /measure_neighbor HTTP/1.1[0m" 500 -
+INFO:werkzeug:10.0.3.210 - - [07/Jul/2023 11:03:27] "GET /is_available HTTP/1.1" 200 -

@@ -1,0 +1,37 @@
+save_dir: logfile/har
+model_name: HARCNN
+model_args:
+  num_class: 6
+  num_chan: 9
+  total_layer: 5
+data:
+  name: UCI_HAR
+  train:
+    name: UCI_HAR
+    dataset_path: ../data/UCI_HAR/UCI_Smartphone_Raw.csv
+  val:
+    name: UCI_HAR
+    dataset_path: ../data/UCI_HAR/UCI_Smartphone_Raw.csv
+  batch_size: 64
+  input_size: [9, 128]
+schedule:
+#  resume:
+#  load_model: YOUR_MODEL_PATH
+  optimizer:
+    name: SGD
+    lr: 0.01
+    momentum: 0.9
+    weight_decay: 0.00004
+  warmup:
+    name: linear
+    steps: 0 # 300
+    ratio: 0.1
+  total_epochs: 200
+  lr_schedule:
+    name: MultiStepLR
+    milestones: [ 60, 120, 160 ]
+    gamma: 0.2
+  val_intervals: 100 #100
+log:
+  interval: 10
+weight_aggregation_interval: 5

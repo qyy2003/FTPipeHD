@@ -1,0 +1,12 @@
+pyyaml
+memory_profiler
+orjson
+ping3
+termcolor
+flask
+pandas
+scikit-learn
+tensordict
+packaging
+datasets
+transformers

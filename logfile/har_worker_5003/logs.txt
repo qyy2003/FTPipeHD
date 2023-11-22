@@ -1,0 +1,15 @@
+INFO:root:Using Tensorboard, logs will be saved in logfile/har_worker_5003/logs
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5003
+ * Running on http://10.192.187.69:5003
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:01] "GET /is_available HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:02] "POST /update_workers HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:04] "POST /set_basic_info HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:07] "GET /start_epoch?epoch=0&lr=2e-05&len=14041 HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:09] "POST /labels HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:09] "POST /labels HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:09] "POST /handle_forward HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:11] "POST /handle_forward HTTP/1.1" 200 -
+INFO:werkzeug:10.192.187.69 - - [14/Oct/2023 21:39:11] "POST /labels HTTP/1.1" 200 -

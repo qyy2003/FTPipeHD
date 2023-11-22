@@ -1,0 +1,86 @@
+INFO:root:Using Tensorboard, logs will be saved in logfile/har_master_single/logs
+INFO:root:Training mode set to Single Mode ...
+INFO:root:Creating model HARCNN ...
+INFO:root:Start formal training...
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 0, loss: 67.1537  val_loss: 1.0374  acc: 42.3919% val_acc: 62.9996%
+INFO:root:Train phase | Epoch 0, Train time 1.840296745300293, Total time 1.840296745300293
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 1, loss: 32.3640  val_loss: 0.6711  acc: 68.7701% val_acc: 73.9216%
+INFO:root:Train phase | Epoch 1, Train time 0.417294979095459, Total time 2.257591724395752
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 2, loss: 28.3197  val_loss: 0.6081  acc: 73.4690% val_acc: 76.7709%
+INFO:root:Train phase | Epoch 2, Train time 0.4245285987854004, Total time 2.6821203231811523
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 3, loss: 23.7091  val_loss: 0.4909  acc: 78.7617% val_acc: 81.5592%
+INFO:root:Train phase | Epoch 3, Train time 0.44759488105773926, Total time 3.1297152042388916
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 4, loss: 19.7191  val_loss: 0.4244  acc: 82.9008% val_acc: 85.3186%
+INFO:root:Train phase | Epoch 4, Train time 0.45653390884399414, Total time 3.5862491130828857
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 5, loss: 17.3061  val_loss: 0.3644  acc: 85.4623% val_acc: 89.3550%
+INFO:root:Train phase | Epoch 5, Train time 0.4133162498474121, Total time 3.999565362930298
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 6, loss: 12.5275  val_loss: 0.2803  acc: 89.6862% val_acc: 92.2833%
+INFO:root:Train phase | Epoch 6, Train time 0.5358719825744629, Total time 4.535437345504761
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 7, loss: 10.7842  val_loss: 0.2409  acc: 90.8567% val_acc: 92.2042%
+INFO:root:Train phase | Epoch 7, Train time 0.4449136257171631, Total time 4.980350971221924
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 8, loss: 9.3649  val_loss: 0.2184  acc: 92.1628% val_acc: 93.2727%
+INFO:root:Train phase | Epoch 8, Train time 0.49454259872436523, Total time 5.474893569946289
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 9, loss: 8.9417  val_loss: 0.2140  acc: 92.2986% val_acc: 91.7689%
+INFO:root:Train phase | Epoch 9, Train time 0.4525010585784912, Total time 5.92739462852478
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 10, loss: 9.9980  val_loss: 0.2001  acc: 91.7557% val_acc: 93.5101%
+INFO:root:Train phase | Epoch 10, Train time 0.574939489364624, Total time 6.502334117889404
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 11, loss: 7.2490  val_loss: 0.1912  acc: 93.5030% val_acc: 93.4705%
+INFO:root:Train phase | Epoch 11, Train time 0.4925830364227295, Total time 6.994917154312134
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 12, loss: 6.7726  val_loss: 0.1698  acc: 94.1476% val_acc: 94.3015%
+INFO:root:Train phase | Epoch 12, Train time 0.4445364475250244, Total time 7.439453601837158
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 13, loss: 6.1541  val_loss: 0.1522  acc: 94.5717% val_acc: 94.6181%
+INFO:root:Train phase | Epoch 13, Train time 0.45462989807128906, Total time 7.894083499908447
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 14, loss: 5.7488  val_loss: 0.1735  acc: 95.0806% val_acc: 92.3625%
+INFO:root:Train phase | Epoch 14, Train time 0.45625948905944824, Total time 8.350342988967896
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 15, loss: 6.0438  val_loss: 0.1625  acc: 94.5038% val_acc: 94.3015%
+INFO:root:Train phase | Epoch 15, Train time 0.464083194732666, Total time 8.814426183700562
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 16, loss: 6.0152  val_loss: 0.1573  acc: 94.9788% val_acc: 94.9347%
+INFO:root:Train phase | Epoch 16, Train time 0.4641246795654297, Total time 9.278550863265991
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 17, loss: 5.8512  val_loss: 0.1687  acc: 94.8092% val_acc: 93.6684%
+INFO:root:Train phase | Epoch 17, Train time 0.44024038314819336, Total time 9.718791246414185
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 18, loss: 6.6166  val_loss: 0.1501  acc: 93.8762% val_acc: 94.8160%
+INFO:root:Train phase | Epoch 18, Train time 0.3963189125061035, Total time 10.115110158920288
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 19, loss: 5.6316  val_loss: 0.1529  acc: 94.9279% val_acc: 95.4887%
+INFO:root:Train phase | Epoch 19, Train time 0.44907450675964355, Total time 10.564184665679932
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 20, loss: 5.3663  val_loss: 0.1366  acc: 95.2502% val_acc: 95.0930%
+INFO:root:Train phase | Epoch 20, Train time 0.42138242721557617, Total time 10.985567092895508
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 21, loss: 5.0587  val_loss: 0.1361  acc: 95.2841% val_acc: 93.9850%
+INFO:root:Train phase | Epoch 21, Train time 0.4183053970336914, Total time 11.4038724899292
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 22, loss: 4.9205  val_loss: 0.1323  acc: 95.5386% val_acc: 95.2909%
+INFO:root:Train phase | Epoch 22, Train time 0.44864773750305176, Total time 11.852520227432251
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 23, loss: 4.8069  val_loss: 0.1213  acc: 95.6234% val_acc: 95.2513%
+INFO:root:Train phase | Epoch 23, Train time 0.4043738842010498, Total time 12.2568941116333
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 24, loss: 4.6105  val_loss: 0.1143  acc: 95.6404% val_acc: 95.6074%
+INFO:root:Train phase | Epoch 24, Train time 0.46529293060302734, Total time 12.722187042236328
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 25, loss: 4.7627  val_loss: 0.1245  acc: 95.5216% val_acc: 95.6074%
+INFO:root:Train phase | Epoch 25, Train time 0.4260244369506836, Total time 13.148211479187012
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 26, loss: 4.9046  val_loss: 0.1280  acc: 95.6064% val_acc: 95.4491%
+INFO:root:Train phase | Epoch 26, Train time 0.43528246879577637, Total time 13.583493947982788
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 27, loss: 4.7626  val_loss: 0.1236  acc: 95.5047% val_acc: 95.0139%
+INFO:root:Train phase | Epoch 27, Train time 0.42065000534057617, Total time 14.004143953323364
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 28, loss: 4.5360  val_loss: 0.1150  acc: 95.5725% val_acc: 95.7657%
+INFO:root:Train phase | Epoch 28, Train time 0.3961496353149414, Total time 14.400293588638306
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 29, loss: 4.3293  val_loss: 0.1185  acc: 95.8948% val_acc: 95.2513%
+INFO:root:Train phase | Epoch 29, Train time 0.4794135093688965, Total time 14.879707098007202
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 30, loss: 4.2880  val_loss: 0.1231  acc: 95.6913% val_acc: 95.2117%
+INFO:root:Train phase | Epoch 30, Train time 0.45734691619873047, Total time 15.337054014205933
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 31, loss: 4.4054  val_loss: 0.1234  acc: 95.9796% val_acc: 95.9240%
+INFO:root:Train phase | Epoch 31, Train time 0.3760097026824951, Total time 15.713063716888428
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 32, loss: 4.4307  val_loss: 0.1205  acc: 95.5216% val_acc: 95.6866%
+INFO:root:Train phase | Epoch 32, Train time 0.43520617485046387, Total time 16.14826989173889
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 33, loss: 4.3482  val_loss: 0.1046  acc: 96.1323% val_acc: 95.7657%
+INFO:root:Train phase | Epoch 33, Train time 0.4011697769165039, Total time 16.549439668655396
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 34, loss: 4.1920  val_loss: 0.1152  acc: 95.7930% val_acc: 96.1219%
+INFO:root:Train phase | Epoch 34, Train time 0.425767183303833, Total time 16.97520685195923
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 35, loss: 4.2279  val_loss: 0.1134  acc: 96.3189% val_acc: 95.8053%
+INFO:root:Train phase | Epoch 35, Train time 0.5229647159576416, Total time 17.49817156791687
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 36, loss: 4.1825  val_loss: 0.1061  acc: 96.1493% val_acc: 95.6074%
+INFO:root:Train phase | Epoch 36, Train time 0.47350168228149414, Total time 17.971673250198364
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 37, loss: 4.6541  val_loss: 0.1232  acc: 95.3520% val_acc: 95.7262%
+INFO:root:Train phase | Epoch 37, Train time 0.5254511833190918, Total time 18.497124433517456
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 38, loss: 4.2041  val_loss: 0.1153  acc: 96.0136% val_acc: 95.5679%
+INFO:root:Train phase | Epoch 38, Train time 0.5415432453155518, Total time 19.038667678833008
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 39, loss: 3.9221  val_loss: 0.1044  acc: 96.5055% val_acc: 96.2010%
+INFO:root:Train phase | Epoch 39, Train time 0.4848289489746094, Total time 19.523496627807617
+INFO:root:Train phase: lr 0.01, iteration 92, epoch 40, loss: 3.8987  val_loss: 0.1080  acc: 96.4885% val_acc: 96.1219%
+INFO:root:Train phase | Epoch 40, Train time 0.7809710502624512, Total time 20.30446767807007

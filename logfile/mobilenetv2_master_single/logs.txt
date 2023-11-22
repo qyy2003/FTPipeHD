@@ -1,0 +1,67 @@
+INFO:root:Using Tensorboard, logs will be saved in logfile/mobilenetv2_master_single/logs
+INFO:root:Training mode set to Single Mode ...
+INFO:root:Creating model MobileNetV2 ...
+INFO:root:Start formal training...
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 0, loss: 0.1521  val_loss: 0.0856  acc: 90.6217% val_acc: 97.4800%
+INFO:root:Saving current model of epoch 0
+INFO:root:Train phase | Epoch 0, Train time 503.6608786582947, Total time 503.6608786582947
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 1, loss: 0.0416  val_loss: 0.0542  acc: 97.6050% val_acc: 98.4300%
+INFO:root:Saving current model of epoch 1
+INFO:root:Train phase | Epoch 1, Train time 506.96471881866455, Total time 1010.6255974769592
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 2, loss: 0.0278  val_loss: 0.0627  acc: 98.3150% val_acc: 98.0900%
+INFO:root:Saving current model of epoch 2
+INFO:root:Train phase | Epoch 2, Train time 506.88214206695557, Total time 1517.5077395439148
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 3, loss: 0.0230  val_loss: 0.0448  acc: 98.5617% val_acc: 98.6400%
+INFO:root:Saving current model of epoch 3
+INFO:root:Train phase | Epoch 3, Train time 505.0305690765381, Total time 2022.5383086204529
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 4, loss: 0.0176  val_loss: 0.0427  acc: 98.9367% val_acc: 98.6100%
+INFO:root:Saving current model of epoch 4
+INFO:root:Train phase | Epoch 4, Train time 503.41157603263855, Total time 2525.9498846530914
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 5, loss: 0.0151  val_loss: 0.0496  acc: 99.0517% val_acc: 98.5000%
+INFO:root:Saving current model of epoch 5
+INFO:root:Train phase | Epoch 5, Train time 502.9487838745117, Total time 3028.898668527603
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 6, loss: 0.0133  val_loss: 0.0469  acc: 99.1767% val_acc: 98.6300%
+INFO:root:Saving current model of epoch 6
+INFO:root:Train phase | Epoch 6, Train time 504.4226269721985, Total time 3533.3212954998016
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 7, loss: 0.0112  val_loss: 0.0444  acc: 99.3033% val_acc: 98.6800%
+INFO:root:Saving current model of epoch 7
+INFO:root:Train phase | Epoch 7, Train time 504.87517833709717, Total time 4038.196473836899
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 8, loss: 0.0111  val_loss: 0.0399  acc: 99.3283% val_acc: 98.7000%
+INFO:root:Saving current model of epoch 8
+INFO:root:Train phase | Epoch 8, Train time 503.5420358181, Total time 4541.738509654999
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 9, loss: 0.0100  val_loss: 0.0378  acc: 99.3750% val_acc: 98.9400%
+INFO:root:Saving current model of epoch 9
+INFO:root:Train phase | Epoch 9, Train time 6371.271327018738, Total time 10913.009836673737
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 10, loss: 0.0088  val_loss: 0.0402  acc: 99.4600% val_acc: 98.8000%
+INFO:root:Saving current model of epoch 10
+INFO:root:Train phase | Epoch 10, Train time 3750.042037010193, Total time 14663.05187368393
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 11, loss: 0.0078  val_loss: 0.0374  acc: 99.4833% val_acc: 98.9300%
+INFO:root:Saving current model of epoch 11
+INFO:root:Train phase | Epoch 11, Train time 507.3974030017853, Total time 15170.449276685715
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 12, loss: 0.0071  val_loss: 0.0492  acc: 99.5783% val_acc: 98.6500%
+INFO:root:Saving current model of epoch 12
+INFO:root:Train phase | Epoch 12, Train time 505.66479110717773, Total time 15676.114067792892
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 13, loss: 0.0077  val_loss: 0.0367  acc: 99.5567% val_acc: 98.9700%
+INFO:root:Saving current model of epoch 13
+INFO:root:Train phase | Epoch 13, Train time 503.703409910202, Total time 16179.817477703094
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 14, loss: 0.0073  val_loss: 0.0425  acc: 99.5383% val_acc: 98.7500%
+INFO:root:Saving current model of epoch 14
+INFO:root:Train phase | Epoch 14, Train time 503.3896749019623, Total time 16683.207152605057
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 15, loss: 0.0073  val_loss: 0.0399  acc: 99.5467% val_acc: 98.8400%
+INFO:root:Saving current model of epoch 15
+INFO:root:Train phase | Epoch 15, Train time 506.4874029159546, Total time 17189.69455552101
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 16, loss: 0.0070  val_loss: 0.0387  acc: 99.5650% val_acc: 98.9100%
+INFO:root:Saving current model of epoch 16
+INFO:root:Train phase | Epoch 16, Train time 507.34928798675537, Total time 17697.043843507767
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 17, loss: 0.0059  val_loss: 0.0477  acc: 99.6133% val_acc: 98.7800%
+INFO:root:Saving current model of epoch 17
+INFO:root:Train phase | Epoch 17, Train time 504.4410312175751, Total time 18201.48487472534
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 18, loss: 0.0051  val_loss: 0.0392  acc: 99.6733% val_acc: 98.8400%
+INFO:root:Saving current model of epoch 18
+INFO:root:Train phase | Epoch 18, Train time 504.03689908981323, Total time 18705.521773815155
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 19, loss: 0.0070  val_loss: 0.0383  acc: 99.5667% val_acc: 98.9200%
+INFO:root:Saving current model of epoch 19
+INFO:root:Train phase | Epoch 19, Train time 903.5196509361267, Total time 19609.04142475128
+INFO:root:Train phase: lr 0.1, iteration 468, epoch 20, loss: 0.0056  val_loss: 0.0392  acc: 99.6833% val_acc: 98.9400%
+INFO:root:Saving current model of epoch 20
+INFO:root:Train phase | Epoch 20, Train time 505.3139817714691, Total time 20114.35540652275

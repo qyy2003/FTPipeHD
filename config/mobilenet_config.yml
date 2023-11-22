@@ -1,0 +1,41 @@
+#Config File example
+save_dir: logfile/mobilenetv2
+model_name: MobileNetV2
+model_args:
+  width_mult: 1.0
+  total_layer: 20
+  n_class: 10
+data:
+  name: MNIST
+  train:
+    name: MNIST
+    dataset_path: ../../data
+  val:
+    name: MNIST
+    dataset_path: ../../data
+  batch_size: 128
+  input_size: [3, 32, 32]
+schedule:
+#  resume:
+#  load_model: YOUR_MODEL_PATH
+  optimizer:
+    name: SGD
+    lr: 0.1 #0.1
+    momentum: 0.9
+    weight_decay: 0.00004 #0.00004
+  warmup:
+    name: linear
+    steps: 0 # 300
+    ratio: 0.1
+  total_epochs: 300
+  lr_schedule:
+    name: MultiStepLR
+    milestones: [ 130,160,175,185 ] # [ 130,160,175,185 ]
+    gamma: 0.1
+  # lr_schedule:
+  #   name: ExponentialLR
+  #   gamma: 0.98
+  val_intervals: 100 #100
+log:
+  interval: 10
+weight_aggregation_interval: -1
