@@ -7,7 +7,48 @@ INFO:root:Creating model...
 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:50001
- * Running on http://192.168.125.180:50001
+ * Running on http://10.192.187.69:50001
 INFO:werkzeug:[33mPress CTRL+C to quit[0m
 INFO:root:Setting up dataset conll2003...
 INFO:root:Start formal training...
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:25:43] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:25:51] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:25:57] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:02] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:08] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:13] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:17] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:20] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:26] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:32] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:37] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:42] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:48] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:51] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:26:57] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:02] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:08] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:14] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:14] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:21] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:26] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:31] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:36] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:41] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:48] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:53] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:27:57] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:02] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:09] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:14] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:20] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:25] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:31] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:37] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:43] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:49] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:28:56] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:29:01] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:29:06] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:29:11] "POST /send_train_backward HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2023 15:29:16] "POST /send_train_backward HTTP/1.1" 200 -

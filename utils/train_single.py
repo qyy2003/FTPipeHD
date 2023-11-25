@@ -11,18 +11,8 @@ import math
 import torch
 import torch.nn as nn
 from tqdm.auto import tqdm
+from memory_profiler import profile
 
-def postprocess(predictions, labels):
-    predictions = predictions.detach().cpu().clone().numpy()
-    labels = labels.detach().cpu().clone().numpy()
-
-    # Remove ignored index (special tokens) and convert to labels
-    true_labels = [[label_names[l] for l in label if l != -100] for label in labels]
-    true_predictions = [
-        [label_names[p] for (p, l) in zip(prediction, label) if l != -100]
-        for prediction, label in zip(predictions, labels)
-    ]
-    return true_labels, true_predictions
 
 def train_single():
     """
@@ -94,24 +84,30 @@ def train_epoch(model, optimizer, lr, train_dataloader, test_dataloader, epoch):
         torch.save(model.state_dict(), save_path)
 
 
-
+@profile
 def train_step(batch, model, optimizer, iter_id):
     """
         One step in train on a single machine
     """
-    batch=batch.to(get_device())
-    outputs,loss = model(batch)
-    # print(batch.keys())
-    correct=model.calculate_acc(outputs,batch["labels"])
+    # batch=batch.to(get_device())
+    # labels=batch[labels]
+    # print(batch)
 
-    update_interval = 2
-    loss = loss / update_interval
+    optimizer.zero_grad()
+    outputs,loss = model(**batch)
+    print(iter_id,loss.item())
+    # print(batch.keys())
+    correct=0#model.calculate_acc(outputs,batch["labels"])
+
+    # update_interval = 1
+    # loss = loss / update_interval
 
     loss.backward()
-
-    if (iter_id + 1) % update_interval == 0:
-        optimizer.step()
-        optimizer.zero_grad()
+    optimizer.step()
+    optimizer.zero_grad()
+    # if (iter_id + 1) % update_interval == 0:
+    #     optimizer.step()
+    #     optimizer.zero_grad()
 
     return loss, correct,batch["labels"].size(0)
 

@@ -4,9 +4,11 @@ from models.mobilenetv2.model import MobileNetV2, SubMobileNetV2
 from models.vgg.model import VGG, SubVGG
 from models.har_cnn.model import HARCNN, SubHARCNN
 from models.BERT.model import BERTForClassification,SubBERTForClassification,TryBert
+from models.LLaMA.model import LLaMA,SubLLaMA
 
 
 model_zoo = {
+    'LLaMA':LLaMA,
     'BERTForClassification': BERTForClassification,#TryBert,
     'MobileNetV2': MobileNetV2,
     'VGG': VGG,
@@ -14,6 +16,7 @@ model_zoo = {
 }
 
 sub_model_zoo = {
+    'LLaMA':SubLLaMA,
     'BERTForClassification': SubBERTForClassification,
     'MobileNetV2': SubMobileNetV2,
     'VGG': SubVGG,

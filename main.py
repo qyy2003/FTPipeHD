@@ -26,6 +26,7 @@ def main():
     # cuda related
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
+    device = "cpu"
     print("device:",device)
     set_device(device)
     #读取config文件并获取相关参数
