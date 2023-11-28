@@ -117,7 +117,7 @@ if __name__ == "__main__":
             "token_type_ids": None, "past": None}
     from custom_datasets.SQuAD_init import init_SQuAD
     from global_variables.config import cfg, load_config
-    load_config(cfg, args.config)
+    load_config(cfg, "config/gpt2_config.yml")
     train,test=init_SQuAD()
     for batch in train:
         data=batch
