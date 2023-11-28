@@ -11,7 +11,7 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from typing_extensions import Self
-
+import os
 
 
 MaskCache = torch.Tensor
@@ -42,11 +42,103 @@ class LLaMAConfig:
         self.n_head = int(args["n_head"]) if args.get("n_head") is not None else 32
         self.n_embd = int(args["n_embd"]) if args.get("n_embd") is not None else 4096
 
-
 class SubLLaMA(nn.Module):
-    def __post_init__(self):
-        if self.padded_vocab_size is None:
-            self.padded_vocab_size = find_multiple(self.vocab_size, 64)
+    def __init__(self, start,end,args0) -> None:
+        super().__init__()
+        config=LLaMAConfig(args0)
+        assert config.padded_vocab_size is not None
+        self.config = config
+        if end==-1:
+            end=config.n_layer+1
+        n_layer=min(end,config.n_layer)-max(1,start)+1
+
+        self.lm_head = nn.Linear(config.n_embd, config.padded_vocab_size, bias=False)
+        self.transformer = nn.ModuleDict(
+            dict(
+                wte=nn.Embedding(config.padded_vocab_size, config.n_embd) if start==0 else None,
+                h=nn.ModuleList(Block(config) for _ in range(n_layer)) if n_layer>0 else None,
+                ln_f=RMSNorm(config.n_embd) if config.n_layer + 1 == end else None,
+            )
+        )
+
+        self.rope_cache: Optional[RoPECache] = None
+        self.mask_cache: Optional[MaskCache] = None
+        self.kv_caches: List[KVCache] = []
+
+    def _init_weights(self, module: nn.Module) -> None:
+        if isinstance(module, nn.Linear):
+            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02 / math.sqrt(2 * self.config.n_layer))
+        elif isinstance(module, nn.Embedding):
+            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02 / math.sqrt(2 * self.config.n_layer))
+
+    def forward(
+        self, data = None,labels: Optional[torch.Tensor] = None
+    ): #-> Union[torch.Tensor, Tuple[torch.Tensor, List[KVCache]]]:
+        x=idx=None
+        if isinstance(data,list):
+            x=data[0]
+            idx=data[1]
+        else:
+            idx=data.get("idx")
+        B, T = idx.size()
+
+        block_size = self.config.block_size
+        max_seq_length = block_size
+        assert T <= max_seq_length, f"Cannot forward sequence of length {T}, max seq length is only {max_seq_length}"
+        assert max_seq_length <= block_size, f"Cannot attend to {max_seq_length}, block size is only {block_size}"
+        assert T <= block_size, f"Cannot forward sequence of length {T}, block size is only {block_size}"
+
+        self.rope_cache = self.build_rope_cache(idx)
+        self.mask_cache = self.build_mask_cache(idx)
+
+        rope = self.rope_cache[:T]
+        mask = self.mask_cache[:, :, :T, :T]
+
+        # forward the model itself
+        if self.transformer.wte is not None:
+            x = self.transformer.wte(idx)  # token embeddings of shape (b, t, n_embd)
+
+        if self.transformer.h is not None:  # proxy for use_cache=False
+            for block in self.transformer.h:
+                x, _ = block(x, rope, mask, max_seq_length)
+
+        if self.transformer.ln_f is None:
+            return [x,idx]
+        x = self.transformer.ln_f(x)
+
+        logits = self.lm_head(x)  # (b, t, vocab_size)
+        if labels is not None:
+            logits = logits[..., :-1, :].contiguous()
+            labels = labels[..., 1:].contiguous()
+            loss = torch.nn.functional.cross_entropy(logits.view(-1, logits.size(-1)), labels.view(-1),
+                                                     ignore_index=-1)
+            return logits,loss
+        return logits
+
+    @classmethod
+    def from_name(cls, name: str) -> Self:
+        return cls(LLaMAConfig.from_name(name))
+
+    def build_rope_cache(self, idx: torch.Tensor) -> RoPECache:
+        return build_rope_cache(
+            seq_len=self.config.block_size,
+            n_elem=self.config.n_embd // self.config.n_head,
+            dtype=idx.dtype,
+            device=idx.device,
+        )
+
+    def build_mask_cache(self, idx: torch.Tensor) -> MaskCache:
+        ones = torch.ones((self.config.block_size, self.config.block_size), device=idx.device, dtype=torch.bool)
+        return torch.tril(ones).unsqueeze(0).unsqueeze(0)
+
+    def reset_cache(self) -> None:
+        self.kv_caches.clear()
+        if self.mask_cache.device.type == "xla":
+            # https://github.com/Lightning-AI/lit-parrot/pull/83#issuecomment-1558150179
+            self.rope_cache = None
+            self.mask_cache = None
+
+
 class LLaMA(nn.Module):
     def __init__(self, args0) -> None:
         super().__init__()
@@ -66,13 +158,79 @@ class LLaMA(nn.Module):
         self.rope_cache: Optional[RoPECache] = None
         self.mask_cache: Optional[MaskCache] = None
         self.kv_caches: List[KVCache] = []
+        self.from_origin_pretrained("../models/llama/")
 
     def _init_weights(self, module: nn.Module) -> None:
         if isinstance(module, nn.Linear):
             torch.nn.init.normal_(module.weight, mean=0.0, std=0.02 / math.sqrt(2 * self.config.n_layer))
         elif isinstance(module, nn.Embedding):
             torch.nn.init.normal_(module.weight, mean=0.0, std=0.02 / math.sqrt(2 * self.config.n_layer))
+    def from_origin_pretrained(self, pretrained_model_path):
+        """
+        Instantiate a BertPreTrainedModel from a pre-trained model file or a pytorch state dict.
+        Download and cache the pre-trained model file if needed.
 
+        Params:
+            pretrained_model_path: either:
+
+                - a path or url to a pretrained model archive containing:
+                    . `bert_config.json` a configuration file for the model
+                    . `pytorch_model.bin` a PyTorch dump of a BertForPreTraining instance
+                - a path or url to a pretrained model archive containing:
+                    . `bert_config.json` a configuration file for the model
+                    . `model.chkpt` a TensorFlow checkpoint
+            *inputs, **kwargs: additional input for the specific Bert class
+                (ex: num_labels for BertForSequenceClassification)
+        """
+
+        weights_path = os.path.join(pretrained_model_path, "llama.pth")
+        state_dict = torch.load(weights_path, map_location='cpu')
+
+        # old_keys = []
+        # new_keys = []
+        # for key in state_dict.keys():
+        #     new_key = None
+        #     if 'gamma' in key:
+        #         new_key = key.replace('gamma', 'weight')
+        #     if 'beta' in key:
+        #         new_key = key.replace('beta', 'bias')
+        #     if new_key:
+        #         old_keys.append(key)
+        #         new_keys.append(new_key)
+        # for old_key, new_key in zip(old_keys, new_keys):
+        #     state_dict[new_key] = state_dict.pop(old_key)
+
+
+        print(state_dict.keys())
+        module._load_from_state_dict(state_dict);
+        # copy state_dict so _load_from_state_dict can modify it
+        metadata = getattr(state_dict, '_metadata', None)
+        state_dict = state_dict.copy()
+        if metadata is not None:
+            state_dict._metadata = metadata
+
+
+        missing_keys = []
+        unexpected_keys = []
+        error_msgs = []
+        def load(module, prefix=''):
+            local_metadata = {} if metadata is None else metadata.get(prefix[:-1], {})
+            # print(local_metadata)
+            module._load_from_state_dict(
+                state_dict, prefix, local_metadata, True, missing_keys, unexpected_keys, error_msgs)
+            for name, child in module._modules.items():
+                if child is not None:
+                    # print(prefix,";",name)
+                    load(child, prefix + name + '.')
+
+        load(self.embeddings, prefix='bert.embeddings.')
+        load(self.encoder,prefix='bert.encoder.layer.')
+        if(len(missing_keys)+len(unexpected_keys)+len(error_msgs)==0):
+            print("Load pretrained weight successfully!")
+        else:
+            print("missing_keys",missing_keys)
+            print("unexpected_keys",unexpected_keys)
+            print("error_msgs",error_msgs)
     def forward(
         self, idx: torch.Tensor, max_seq_length: Optional[int] = None, input_pos: Optional[torch.Tensor] = None,labels: Optional[torch.Tensor] = None
     ): #-> Union[torch.Tensor, Tuple[torch.Tensor, List[KVCache]]]:

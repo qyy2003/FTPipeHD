@@ -71,7 +71,7 @@ def handle_forward_intermediate(req):
         # If it is the final stage, backward it
 
         loss = intermediate[1]
-        correct = sub_model.calculate_acc(intermediate[0], labels)
+        correct = 1;#sub_model.calculate_acc(intermediate[0], labels)
         # correct=1
         print("Backwarding Batch {} ｜ Current loss is {}...".format(iter_id, loss.item()))
 

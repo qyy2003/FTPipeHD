@@ -5,7 +5,7 @@ from models.vgg.model import VGG, SubVGG
 from models.har_cnn.model import HARCNN, SubHARCNN
 from models.BERT.model import BERTForClassification,SubBERTForClassification,TryBert
 from models.LLaMA.model import LLaMA,SubLLaMA
-
+from models.GPT2.model import SubGPT2ForClassification
 
 model_zoo = {
     'LLaMA':LLaMA,
@@ -16,6 +16,7 @@ model_zoo = {
 }
 
 sub_model_zoo = {
+    "GPT2ForClassification":SubGPT2ForClassification,
     'LLaMA':SubLLaMA,
     'BERTForClassification': SubBERTForClassification,
     'MobileNetV2': SubMobileNetV2,

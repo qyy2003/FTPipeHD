@@ -5,7 +5,9 @@ from custom_datasets.mnist_init import init_mnist
 from custom_datasets.HAR.init import init_har
 from custom_datasets.conll2003_init import init_conll2003
 from custom_datasets.alpaca_init import init_alpaca
+from custom_datasets.SQuAD_init import init_SQuAD
 dataset_set = {
+    "SQuAD":init_SQuAD,
     "Alpaca":init_alpaca,
     'conll2003':init_conll2003,
     'CIFAR10': init_cifar10,

@@ -1,22 +1,30 @@
 #Config File example
-save_dir: logfile/llama
-model_name: LLaMA
+save_dir: logfile/bert_for_classification
+model_name: GPT2ForClassification
 model_args:
-  n_layer: 10
-  total_layer: 12
-  #32
-  n_head: 32
-  n_embd: 4096
+  vocab_size : 50257
+  n_ctx : 1024
+  n_positions : 1024
+  hidden_size : 1024
+  total_layer : 24
+  num_attention_heads : 16
+  norm_epsilon : 1e-5
+  initializer_range : 0.02
+  num_classes : 2
+
+weights_path: gpt2
 data:
-  name: Alpaca
-  path: ../data/alpaca
-  batch_size: 2
+  name: SQuAD
+  path: ../data/SQuAD
+  batch_size: 8
+
+  input_size: [3, 256, 256]
 schedule:
   #  resume:
   #  load_model: YOUR_MODEL_PATH
   optimizer:
     name: AdamW
-    lr: 0.00003 #0.1
+    lr: 0.00002 #0.1
 #    momentum: 0.9
 #    weight_decay: 0.00004 #0.00004
   warmup:

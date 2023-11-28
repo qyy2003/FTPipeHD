@@ -169,7 +169,7 @@ def send_basic_info(url, point, model_name, model_args, aggr_interval):
     res = None
     traget_url = url + '/set_basic_info'
     try:
-        res = requests.post(traget_url, orjson.dumps(payload), timeout=10)
+        res = requests.post(traget_url, orjson.dumps(payload), timeout=100)
         res = res.text
     except Exception as e:
         print(e)

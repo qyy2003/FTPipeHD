@@ -112,7 +112,7 @@ def train_epoch_distribute(cfg, train_dataloader):
         labels = batch["labels"]
         total += batch["labels"].size(0)
         sub_model,sub_optimizer,sub_scheduler=train_variables.get_all_forward_element()
-        inputs.to(get_device())
+        # inputs.to(get_device())
         intermediate = sub_model(inputs)
         train_variables.save_all_training_element(sub_model, sub_optimizer, sub_scheduler, inputs, intermediate[0])
 
@@ -149,11 +149,11 @@ def handle_backward_intermediate(req):
     global correct, total, train_loss, counter, progress_bar
 
     iter_id = req['iter_id']
-    # print("receive",iter_id)
+    print("receive",iter_id)
     global id_now,lock
 
     lock.acquire()
-    # print(iter_id,id_now)
+    print(iter_id,id_now)
     while (iter_id != id_now):
         lock.wait()
 
