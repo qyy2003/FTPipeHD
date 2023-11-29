@@ -109,7 +109,7 @@ class SubLLaMA(nn.Module):
         logits = self.lm_head(x)  # (b, t, vocab_size)
         if labels is not None:
             logits = logits[..., :-1, :].contiguous()
-            labels = labels[..., 1:].contiguous()
+            labels = labels[0][..., 1:].contiguous()
             loss = torch.nn.functional.cross_entropy(logits.view(-1, logits.size(-1)), labels.view(-1),
                                                      ignore_index=-1)
             return logits,loss
@@ -278,7 +278,7 @@ class LLaMA(nn.Module):
         logits = self.lm_head(x)  # (b, t, vocab_size)
         if labels is not None:
             logits = logits[..., :-1, :].contiguous()
-            labels = labels[..., 1:].contiguous()
+            labels = labels[0][..., 1:].contiguous()
             loss = torch.nn.functional.cross_entropy(logits.view(-1, logits.size(-1)), labels.view(-1),
                                                      ignore_index=-1)
             return logits,loss

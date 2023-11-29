@@ -1,5 +1,5 @@
 import torch
-def single_MNN_to_pytorch(data):
+def single_MNN_to_pytorch(data,is_long):
     # print(len(data))
     # data[0]=np.array(data[0]).reshape(tuple(data[1]))
     if(data[3]==0):
@@ -7,12 +7,15 @@ def single_MNN_to_pytorch(data):
         data0.requires_grad=True
         return data0
     else:
-        return torch.tensor(data[0], dtype=torch.int32).reshape(data[1])
+        if is_long:
+            return torch.tensor(data[0], dtype=torch.long).reshape(data[1])
+        else:
+            return torch.tensor(data[0], dtype=torch.int32).reshape(data[1])
 
-def MNN_to_pytorch(data,lens=4):
+def MNN_to_pytorch(data,lens=4,is_long=0):
     data0=[]
     for i in range(0,len(data),lens):
-        data0.append(single_MNN_to_pytorch(data[i:i+lens]))
+        data0.append(single_MNN_to_pytorch(data[i:i+lens],is_long))
     return data0
 
 def single_pytorch_to_MNN(data,order=2):

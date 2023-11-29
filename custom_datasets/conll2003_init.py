@@ -61,9 +61,12 @@ def init_conll2003():
     # train_dataloader = torch.utils.data.DataLoader(
     #     train_dataloader, batch_size=dataset_config.batch_size, shuffle=True, collate_fn=data_collator
     # )
-
+    def my_data_collator(data):
+        data=data_collator(data)
+        data["labels"]=[data["labels"]]
+        return data
     train_dataloader = torch.utils.data.DataLoader(
-        tokenized_datasets["train"], batch_size=dataset_config.batch_size, shuffle=True,collate_fn=data_collator
+        tokenized_datasets["train"], batch_size=dataset_config.batch_size, shuffle=True,collate_fn=my_data_collator
     )
 
     eval_dataloader = torch.utils.data.DataLoader(

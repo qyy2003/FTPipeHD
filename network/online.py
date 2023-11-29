@@ -67,7 +67,7 @@ def send_labels(url, iter_id, labels):
     """
     payload = {
         "iter_id": iter_id,
-        "labels": pytorch_to_MNN([labels])
+        "labels": pytorch_to_MNN(labels)
     }
     # print(payload)
     res = None

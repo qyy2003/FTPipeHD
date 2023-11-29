@@ -51,7 +51,7 @@ def store_labels():
 
     iter_id = data['iter_id']
     # testlabel=torch.tensor(MNN_to_pytorch(data['labels'])[0])
-    update_labels_pool(iter_id, MNN_to_pytorch(data['labels'])[0].to(dtype=torch.long))
+    update_labels_pool(iter_id, MNN_to_pytorch(data['labels'],is_long=1))
 
     return "ok"
 

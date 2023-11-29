@@ -110,7 +110,7 @@ def train_epoch_distribute(cfg, train_dataloader):
 
         inputs = batch
         labels = batch["labels"]
-        total += batch["labels"].size(0)
+        total += batch["labels"][0].size(0)
         sub_model,sub_optimizer,sub_scheduler=train_variables.get_all_forward_element()
         # inputs.to(get_device())
         intermediate = sub_model(inputs)

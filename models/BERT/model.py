@@ -416,6 +416,7 @@ class SubBERTForClassification(nn.Module):
         logits = self.classifier(output)
 
         if labels is not None:
+            labels=labels[0]
             loss_fct = CrossEntropyLoss()
             active_loss = labels.view(-1) != -100
             active_logits = logits.view(-1, self.numClasses)[active_loss]

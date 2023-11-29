@@ -75,7 +75,7 @@ class SubGPT2ForClassification(nn.Module):
         # enconder
         if self.encoder is not None:
             for layer_module in self.encoder:
-                [output, past] = layer_module(x=output, layer_past=past)
+                [output, past] = layer_module(x=output, layer_past=None)
 
         if self.classifier is None:
             return [output, past]
@@ -104,7 +104,7 @@ class SubGPT2ForClassification(nn.Module):
                 total_loss = (start_loss + end_loss) / 2
                 return [total_loss]
             else:
-                return [start_logits, end_logits]
+                return [start_logits]
         else:
             return [logits]
 
@@ -117,12 +117,17 @@ if __name__ == "__main__":
             "token_type_ids": None, "past": None}
     from custom_datasets.SQuAD_init import init_SQuAD
     from global_variables.config import cfg, load_config
+    from flask_api.transfer import MNN_to_pytorch,pytorch_to_MNN
     load_config(cfg, "config/gpt2_config.yml")
     train,test=init_SQuAD()
     for batch in train:
         data=batch
-        model_1 = SubGPT2ForClassification(0, 4, args)
+        model_1 = SubGPT2ForClassification(0, 12, args)
         model1_output = model_1(data)
-        model_2 = SubGPT2ForClassification(5, 8, args)
-        model2_output = model_2(model1_output, labels=batch['labels'])
+        out1=pytorch_to_MNN(model1_output)
+        out2=MNN_to_pytorch(out1)
+        model_2 = SubGPT2ForClassification(12, 25, args)
+        model2_output = model_2(out2, labels=batch['labels'])
+        print("loss = " ,model2_output)
+        model2_output[0].backward()
     print(model2_output)
