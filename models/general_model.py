@@ -16,8 +16,8 @@ model_zoo = {
 }
 
 sub_model_zoo = {
-    "GPT2ForClassification":SubGPT2ForClassification,
-    'LLaMA':SubLLaMA,
+    "GPT2":SubGPT2ForClassification,
+    'LLaMALora':SubLLaMA,
     'BERTForClassification': SubBERTForClassification,
     'MobileNetV2': SubMobileNetV2,
     'VGG': SubVGG,

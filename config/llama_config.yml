@@ -1,6 +1,6 @@
 #Config File example
 save_dir: logfile/llama
-model_name: LLaMA
+model_name: LLaMALora
 model_args:
   n_layer: 5
   total_layer: 7

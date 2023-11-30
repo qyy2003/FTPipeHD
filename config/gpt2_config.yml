@@ -1,6 +1,6 @@
 #Config File example
 save_dir: logfile/bert_for_classification
-model_name: GPT2ForClassification
+model_name: GPT2
 model_args:
   vocab_size : 50257
   n_ctx : 1024
