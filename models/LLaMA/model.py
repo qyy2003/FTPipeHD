@@ -161,7 +161,7 @@ class LLaMA(nn.Module):
         self.rope_cache: Optional[RoPECache] = None
         self.mask_cache: Optional[MaskCache] = None
         self.kv_caches: List[KVCache] = []
-        self.from_origin_pretrained("../models/llama/")
+        # self.from_origin_pretrained("../models/llama/")
 
     def _init_weights(self, module: nn.Module) -> None:
         if isinstance(module, nn.Linear):

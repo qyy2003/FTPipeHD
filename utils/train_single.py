@@ -109,7 +109,7 @@ def train_step(batch, model, optimizer, iter_id):
     #     optimizer.step()
     #     optimizer.zero_grad()
 
-    return loss, correct,batch["labels"].size(0)
+    return loss, correct,batch["labels"][0].size(0)
 
 
 def test_single(model, test_dataloader):

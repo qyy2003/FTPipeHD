@@ -8,7 +8,7 @@ from models.LLaMA.model import LLaMA,SubLLaMA
 from models.GPT2.model import SubGPT2ForClassification
 
 model_zoo = {
-    'LLaMA':LLaMA,
+    'LLaMALora':LLaMA,
     'BERTForClassification': BERTForClassification,#TryBert,
     'MobileNetV2': MobileNetV2,
     'VGG': VGG,
