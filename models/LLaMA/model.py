@@ -77,7 +77,10 @@ class SubLLaMA(nn.Module):
         x=idx=None
         if isinstance(data,list):
             x=data[0]
-            idx=data[1]
+            si=[x.size(0),x.size(1)]
+            # idx=data[1]
+            idx=torch.zeros(si)
+            print(x.size(),"|",idx.size())
         else:
             idx=data.get("idx")
         B, T = idx.size()

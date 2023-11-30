@@ -73,7 +73,7 @@ def offline_profiling():
     """
     log_message("Start offline profiling of model {}...".format(cfg.model_name))
     ## debuging
-    set_partition_point([4,8])
+    set_partition_point([2,4])
     # set_partition_point([11])
     return ;
 
